@@ -1,0 +1,160 @@
+/*session 2*/
+The SQL language is widely used today across web frameworks and database applications.
+Knowing SQL gives you the freedom to explore your data, 
+and the power to make better decisions. By learning SQL, you will also learn concepts that apply to nearly every data storage system.
+execute this commands
+<!__________________________________________________________________________________________________________________________________!>
+1) SELECT * FROM tablename;
+The SELECT statement is used to select data from a database.
+eg:SELECT name FROM celebs; 
+
+Question:what order are rows selected from a table?
+
+Answer:In most SQL databases, by default, the rows will be selected in the order that they appear in the table, 
+from top to bottom. For instance, if you have a statement like SELECT * FROM table this will select all rows 
+from the table from the first row that appears down to the bottom row.
+Later on in the other SQL lessons, you will also learn about clauses such as ORDER BY, 
+which allow you to set a certain order for how the rows will be returned in the result set.
+<!__________________________________________________________________________________________________________________________________!>
+2)A table is a collection of data organized into rows and columns. Tables are sometimes referred to as relations. 
+    All data stored in a relational database is of a certain data type. Some of the most common data types are:
+
+INTEGER, a positive or negative whole number
+TEXT, a text string
+DATE, the date formatted as YYYY-MM-DD
+REAL, a decimal value
+
+
+syntax:
+CREATE TABLE table_name (
+   column_1 data_type, 
+   column_2 data_type, 
+   column_3 data_type
+);
+
+eg:CREATE statements allow us to create a new table in the database. 
+You can use the CREATE statement anytime you want to create a new table from scratch.
+The statement below creates a new table named celebs
+CREATE TABLE celebs (
+   id INTEGER, 
+   name TEXT, 
+   age INTEGER
+);
+<!__________________________________________________________________________________________________________________________________!>
+
+Insert
+The INSERT statement inserts a new row into a table. You can use the INSERT statement when you want to add new records. 
+eg:INSERT INTO celebs (id, name, age) 
+VALUES (1, 'Justin Bieber', 22);
+
+
+
+syntax:INSERT INTO table (col1, col2, col3)
+VALUES
+(row1_val1, row1_val2, row1_val3),
+(row2_val1, row2_val2, row2_val3),
+(row3_val1, row3_val2, row3_val3);
+
+eg:insert into celebs(id,name,age)
+values(1,'Justin Bieber',22);
+insert into celebs(id,name,age) values
+(2,'Beyonce Knowles',33),
+(3, 'Jeremy Lin', 26),
+(4, 'Taylor Swift', 26);
+select * from celebs;
+<!__________________________________________________________________________________________________________________________________!>
+Alter
+The ALTER TABLE statement adds a new column to a table. You can use this command when you want to add columns to a table.
+eg:ALTER TABLE celebs 
+ADD COLUMN columnname;
+
+question: can we add a column at a specific position to a table?
+
+Answer:
+No, unfortunately, you cannot specify what position to add a column to a table.
+
+By default, a new column will always be added at the end of the table. 
+For most intents and purposes, this should not affect much, since you can always select the columns in any order, 
+for instance, like
+SELECT col3, col1, col2
+If column order is very important, then an alternative is to create a new table and 
+add the columns in the specific order they should appear.
+<!__________________________________________________________________________________________________________________________________!>
+Update
+The UPDATE statement edits a row in a table. You can use the UPDATE statement when you want to change existing records.
+eg:UPDATE tablename 
+SET colunmnbame = 'value' 
+WHERE condition;
+
+question: how is ALTER different from UPDATE?
+
+Answer
+Although similar in the sense that both statements will modify a table, these statements are quite different.
+
+The ALTER statement is used to modify columns. With ALTER, you can add columns, remove them, or even modify them.
+
+The UPDATE statement is used to modify rows. However, UPDATE can only update a row, and cannot remove or add rows.
+
+
+
+
+
+
+
+<!__________________________________________________________________________________________________________________________________!>
+Delete
+The DELETE FROM statement deletes one or more rows from a table. You can use the statement when you want to delete existing records.
+eg:DELETE FROM tablename 
+WHERE condition;
+
+
+question:what if we only want to delete a specific number of rows?
+
+Answer
+To delete only a specific number of rows, you can utilize the LIMIT statement.
+The value provided for LIMIT will be how many rows to affect.
+
+For example, this statement will only delete the first 5 rows that match the condition,
+
+DELETE FROM table
+WHERE condition
+LIMIT 5;
+
+<!__________________________________________________________________________________________________________________________________!>
+Delete
+Constraints
+Constraints that add information about how a column can be used are invoked after specifying the data type for a column.
+They can be used to tell the database to reject inserted data that does not adhere to a certain restriction.
+1. PRIMARY KEY columns can be used to uniquely identify the row. 
+Attempts to insert a row with an identical value to a row already in the table will result in a constraint violation which will not allow you to insert the new row.
+
+2. UNIQUE columns have a different value for every row. 
+This is similar to PRIMARY KEY except a table can have many different UNIQUE columns.
+
+3. NOT NULL columns must have a value.
+Attempts to insert a row without a value for a NOT NULL column will result in a constraint violation and the new row will not be inserted.
+
+4. DEFAULT columns take an additional argument that will be the assumed value for an inserted row if the new row does not specify a value for that column.
+<!__________________________________________________________________________________________________________________________________!>
+
+a brief in 30seconds:
+SQL is a programming language designed to manipulate and manage data stored in relational databases.
+
+A relational database is a database that organizes information into one or more tables.
+A table is a collection of data organized into rows and columns.
+A statement is a string of characters that the database recognizes as a valid command.
+
+CREATE TABLE creates a new table.
+INSERT INTO adds a new row to a table.
+SELECT queries data from a table.
+ALTER TABLE changes an existing table.
+UPDATE edits a row in a table.
+DELETE FROM deletes rows from a table.
+Constraints add information about how a column can be used
+
+
+
+
+
+
+
